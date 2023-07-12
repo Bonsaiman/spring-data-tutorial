@@ -1,0 +1,36 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="hibernateJPA" transaction-type="RESOURCE_LOCAL">
+
+        <!-- JPA實現方式 -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- 需要進行ORM的POJO -->
+        <class>idv.chy.entity.Customer</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test"/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+
+            <!-- 顯示實際操作資料庫時的SQL -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- 將顯示的SQL排版，方便觀看 -->
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- 表生成策略
+                 預設none 不生成
+                 update 檢查更新
+                 create 每次都新建-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- SQL方言 -->
+            <property name="dialect" value="org.hibernate.dialect.H2Dialect"/>
+        </properties>
+
+
+
+    </persistence-unit>
+</persistence>

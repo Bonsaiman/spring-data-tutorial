@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- JDBC驅動程式 -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <!-- JDBC URL -->
+        <property name="connection.url">jdbc:h2:~/test</property>
+        <!-- 資料庫使用者 -->
+        <property name="connection.username">sa</property>
+        <!-- 資料庫密碼 -->
+        <property name="connection.password"></property>
+
+
+        <!-- 顯示實際操作資料庫時的SQL -->
+        <property name="show_sql">true</property>
+        <!-- 將顯示的SQL排版，方便觀看 -->
+        <property name="format_sql">true</property>
+        <!-- 表生成策略
+             預設none 不生成
+             update 檢查更新
+             create 每次都新建-->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- SQL方言 -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- 物件與資料庫表格映射文件 -->
+        <mapping class="idv.chy.entity.Customer"></mapping>
+
+    </session-factory>
+
+</hibernate-configuration>
