@@ -1,4 +1,4 @@
-package idv.chy;
+package idv.chy.v1;
 
 import idv.chy.entity.Customer;
 import org.springframework.data.domain.Page;
@@ -42,6 +42,7 @@ public class MyJpaProxy implements PagingAndSortingRepository {
     @Override
     public Optional findById(Object id) {
         // JPA
+        System.out.println("customize JPA implementation");
         return Optional.of(em.find(clazz, id));
     }
 
