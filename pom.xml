@@ -12,7 +12,7 @@
         <module>jpa-hibernate</module>
         <module>springdata-jpa</module>
         <module>relationship</module>
-        <module>relationship</module>
+        <module>theory</module>
     </modules>
 
     <properties>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/data/jpa
+    https://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!-- 比照官方文件JavaDoc設置 https://docs.spring.io/spring-data/jpa/docs/2.7.10/reference/html/#jpa.java-config -->
+    <jpa:repositories base-package="idv.chy.repository"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+
+    <!-- DataSource -->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" name="dataSource">
+        <property name="url" value="jdbc:h2:~/test"/>
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <!--  EntityManagerFactory  -->
+    <bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <!-- Hibernate 實作 -->
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <!-- 生成Database -->
+                <property name="generateDdl" value="true"/>
+                <property name="showSql" value="true"/>
+            </bean>
+        </property>
+        <!-- 設置映射對象 -->
+        <property name="packagesToScan" value="idv.chy.entity"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- TransactionManager -->
+    <bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!-- 啟動Annotation的聲明Transaction -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>
