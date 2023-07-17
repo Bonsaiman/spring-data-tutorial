@@ -2,6 +2,7 @@ package idv.chy.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -14,8 +15,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration // configuration --> xml
-@EnableJpaRepositories("idv.chy.repository") // 啟動 JPA
-@EnableTransactionManagement // 開啟 Transaction
+//@EnableJpaRepositories("idv.chy.repository") // 啟動 JPA
+//@EnableTransactionManagement // 開啟 Transaction
+@ComponentScan("idv.chy")
 public class SpringDataJPAConfig {
 
 

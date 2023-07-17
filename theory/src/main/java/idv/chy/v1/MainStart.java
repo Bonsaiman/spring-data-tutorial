@@ -1,9 +1,8 @@
-package idv.chy;
+package idv.chy.v1;
 
 import idv.chy.config.SpringDataJPAConfig;
 import idv.chy.repository.CustomerRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.jca.support.LocalConnectionFactoryBean;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.persistence.EntityManager;

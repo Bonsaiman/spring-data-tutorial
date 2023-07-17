@@ -1,9 +1,8 @@
-package idv.chy;
+package idv.chy.v1;
 
 import javax.persistence.EntityManager;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class MyJpaRepository implements InvocationHandler {
     EntityManager entityManager;

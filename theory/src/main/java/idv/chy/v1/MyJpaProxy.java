@@ -1,4 +1,4 @@
-package idv.chy;
+package idv.chy.v1;
 
 import idv.chy.entity.Customer;
 import org.springframework.data.domain.Page;
