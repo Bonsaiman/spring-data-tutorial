@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.core.type.AnnotationMetadata;
 
 /**
- * 自定義 Scanner
- * 透過此 Scanner 進行動態 registry
+ *  自定義 Scanner
+ *  透過此 Scanner 進行動態 registry
  */
 public class MyJpaClassPathBeanDefinitionScanner extends ClassPathBeanDefinitionScanner {
     public MyJpaClassPathBeanDefinitionScanner(BeanDefinitionRegistry registry) {
